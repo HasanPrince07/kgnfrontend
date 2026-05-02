@@ -1,0 +1,30 @@
+#career-form-section h2 {
+    font-size: 40px;
+}
+
+#career-form-section .table-bordered {
+    border-color: black;
+}
+
+#career-form-section table th {
+    background-color: #e0e0e0;
+}
+
+#career-form-section .career-form-btn {
+    background-color: #002954;
+    color: white;
+    font-size: 12px;
+    border: 2px solid #002954;
+}
+
+#career-form-section .career-form-btn:hover {
+    background-color: white;
+    color: #002954;
+    border: 2px solid #002954;
+}
+
+@media screen and (max-width: 576px) {
+    #career-form-section h2 {
+        font-size: 24px;
+    }
+}

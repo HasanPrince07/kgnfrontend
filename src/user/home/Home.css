@@ -1,0 +1,320 @@
+#banner-section .inside-div {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+}
+
+#banner-section img {
+    border-radius: 6px;
+    height: 678px;
+}
+
+#banner-section .fade-in-image {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#banner-section .empty-div {
+    height: 500px;
+}
+
+#banner-section h2 {
+    color: white;
+    font-size: 52px;
+    text-shadow: 1px 1px 3px black;
+}
+
+#banner-section p {
+    color: white;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+#banner-section .custom-btn {
+    background-color: white;
+    font-size: 16px;
+    color: #0c58aa;
+    transition: all 0.3s ease;
+}
+
+#banner-section .custom-btn:hover {
+    background-color: #0c58aa;
+    color: white;
+}
+
+@media screen and (max-width: 1024px) {
+    #banner-section img {
+        height: 376px;
+    }
+
+    #banner-section h2 {
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #banner-section .inside-div {
+        border-radius: 0px;
+    }
+
+    #banner-section img {
+        border-radius: 0px;
+        height: 182px;
+    }
+
+    #banner-section .empty-div {
+        height: 200px;
+    }
+
+    #banner-section h2 {
+        font-size: 24px;
+    }
+
+    #banner-section .custom-btn {
+        font-size: 11px;
+    }
+}
+
+
+
+#history-section {
+    background-color: #d1d1d1;
+}
+
+#history-section h2 {
+    font-size: 40px;
+}
+
+#history-section h3 {
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+#history-section p {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 576px) {
+    #history-section h2 {
+        font-size: 24px;
+    }
+
+    #history-section h3 {
+        font-size: 20px;
+    }
+
+    #history-section p {
+        font-size: 14px;
+    }
+}
+
+
+
+#product-section h2 {
+    font-size: 40px;
+}
+
+#product-section h3 {
+    color: white;
+    letter-spacing: 10px;
+    font-size: 35px;
+}
+
+.product-card .hover-overlay {
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.product-card:hover .hover-overlay {
+    opacity: 1;
+}
+
+#product-section .see-all-btn {
+    color: white;
+    background-color: #002954;
+    font-size: 18px;
+    border: 2px solid #002954;
+}
+
+#product-section .see-all-btn:hover {
+    color: #002954;
+    background-color: white;
+    border: 2px solid #002954;
+}
+
+@media screen and (max-width: 1024px) {
+    #product-section .container {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #product-section h2 {
+        font-size: 24px;
+    }
+
+    #product-section .see-all-btn {
+        font-size: 16px;
+    }
+}
+
+
+
+#number-section {
+    background-color: #002954;
+    color: white;
+}
+
+#number-section h2 {
+    font-size: 38px;
+}
+
+#number-section p {
+    font-size: 32px;
+}
+
+@media screen and (max-width: 1024px) {
+    #number-section h2 {
+        font-size: 28px;
+    }
+
+    #number-section p {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #number-section h2 {
+        font-size: 24px;
+    }
+
+    #number-section p {
+        font-size: 18px;
+    }
+}
+
+
+
+#certificate-section h2 {
+    font-size: 40px;
+}
+
+#certificate-section img {
+    width: 100%;
+}
+
+@media screen and (max-width: 576px) {
+    #certificate-section h2 {
+        font-size: 24px;
+    }
+
+    #certificate-section img {
+        width: 50%;
+    }
+}
+
+
+
+#policy-section {
+    background-color: #002954;
+    color: white;
+}
+
+#policy-section h2 {
+    font-size: 40px;
+}
+
+#policy-section p {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    #policy-section p {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #policy-section h2 {
+        font-size: 24px;
+    }
+
+    #policy-section p {
+        font-size: 14px;
+    }
+}
+
+
+
+#faq-section h2 {
+    font-size: 40px;
+}
+
+#faq-section .faq-div {
+    border-bottom: 2px solid black;
+}
+
+#faq-section .faq-arrow {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+#faq-section .is-open .faq-arrow {
+    transform: rotate(180deg);
+}
+
+#faq-section .faq-answer-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-out;
+    overflow: hidden;
+}
+
+#faq-section .is-open .faq-answer-wrapper {
+    grid-template-rows: 1fr;
+}
+
+#faq-section .faq-answer-content {
+    min-height: 0;
+}
+
+#faq-section h3 {
+    font-size: 24px;
+}
+
+#faq-section p {
+    font-size: 18px;
+}
+
+@media screen and (max-width: 1024px) {
+    #faq-section h3 {
+        font-size: 28px;
+    }
+
+    #faq-section p {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #faq-section h2 {
+        font-size: 24px;
+    }
+
+    #faq-section h3 {
+        font-size: 20px;
+    }
+
+    #faq-section p {
+        font-size: 14px;
+    }
+}

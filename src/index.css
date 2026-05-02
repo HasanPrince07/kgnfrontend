@@ -1,0 +1,633 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+#loader-section {
+  height: 87vh;
+}
+
+#loader-section .spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #002954;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#loader-section h2 {
+  color: #002954;
+  font-size: 25px;
+}
+
+@media screen and (max-width: 1024px) {
+  #loader-section {
+    height: 93vh;
+  }
+
+  #loader-section h2 {
+    font-size: 35px;
+  }
+
+  #loader-section .spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #002954;
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #loader-section {
+    height: 91vh;
+  }
+
+  #loader-section .spinner {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #002954;
+    width: 50px;
+    height: 50px;
+  }
+
+  #loader-section h2 {
+    font-size: 25px;
+  }
+}
+
+
+
+#chat-section {
+  width: 120px;
+  background-color: #002954;
+  border: 2px solid white;
+  bottom: 10%;
+  right: 0%;
+  cursor: pointer;
+}
+
+#chat-section:hover {
+  background-color: #0c58aa;
+}
+
+#chat-section img {
+  width: 40px;
+  height: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  #chat-section {
+    width: 150px;
+  }
+
+  #chat-section img {
+    width: 45px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #chat-section {
+    width: 80px;
+  }
+
+  #chat-section img {
+    width: 25px;
+  }
+}
+
+
+
+#logout-section {
+  background-color: #002954;
+  width: 150px;
+  font-size: 16px;
+  color: white;
+  border: 2px solid #002954;
+  bottom: 10%;
+  right: 0%;
+}
+
+#logout-section:hover {
+  background-color: white;
+  color: #002954;
+}
+
+@media screen and (max-width: 576px) {
+  #logout-section {
+    width: 120px;
+  }
+}
+
+
+
+#header-section {
+  background-color: white;
+}
+
+#header-section .logo {
+  width: 75%;
+  height: 100%;
+}
+
+#header-section a {
+  color: #0c58aa;
+  font-size: 16px;
+}
+
+#header-section .link-text-mob a {
+  font-size: 13px;
+}
+
+#header-section .active {
+  color: white;
+  background-color: #0c58aa;
+}
+
+@media screen and (max-width: 1024px) {
+  #header-section .logo {
+    width: 100%;
+  }
+
+  #header-section a {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #header-section a {
+    font-size: 20px;
+  }
+}
+
+
+
+#wall-section .outer-div {
+  height: 50vh;
+}
+
+#wall-section .inner-div {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#wall-section h2 {
+  font-size: 52px;
+  color: white;
+}
+
+@media screen and (max-width: 1024px) {
+  #wall-section .outer-div {
+    height: 25vh;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #wall-section h2 {
+    font-size: 28px;
+  }
+}
+
+
+
+#footer-section .container-fluid {
+  background-color: #0c58aa;
+}
+
+#footer-section .logo {
+  width: 50%;
+}
+
+#footer-section h3 {
+  color: white;
+  font-size: 28px;
+}
+
+#footer-section .footer-links {
+  color: white;
+  font-size: 18px;
+}
+
+#footer-section .footer-links:hover {
+  color: #002954;
+}
+
+#footer-section .contact-img {
+  width: 25px;
+  height: 25px;
+}
+
+#footer-section .contact-text {
+  color: white;
+  font-size: 18px;
+}
+
+#footer-section .social-media li img {
+  width: 35px;
+  height: 35px;
+}
+
+#footer-section p {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 1024px) {
+  #footer-section .logo {
+    width: 75%;
+  }
+
+  #footer-section .contact-img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #footer-section .logo {
+    width: 40%;
+  }
+
+  #footer-section h3 {
+    font-size: 22px;
+  }
+
+  #footer-section .footer-links {
+    font-size: 16px;
+  }
+
+  #footer-section .contact-img {
+    width: 22px;
+    height: 22px;
+  }
+
+  #footer-section .contact-text {
+    font-size: 16px;
+  }
+
+  #footer-section .social-media li img {
+    width: 33px;
+    height: 33px;
+  }
+
+  #footer-section p {
+    font-size: 15px;
+  }
+}
+
+
+
+#adminheader-section {
+  background-color: white;
+}
+
+#adminheader-section img {
+  width: 75%;
+  height: 100%;
+}
+
+#adminheader-section .menu {
+  width: 15%;
+}
+
+@media screen and (max-width: 1024px) {
+  #adminheader-section img {
+    width: 100%;
+  }
+}
+
+
+
+#headerModal-section {
+  background: rgba(0, 0, 0, 0.1);
+  margin-top: 17.5%;
+}
+
+#headerModal-section .headerModal-div {
+  background-color: white;
+  height: 85vh;
+  overflow: auto;
+}
+
+#headerModal-section a {
+  color: #0c58aa;
+  font-size: 12px;
+}
+
+#headerModal-section .active {
+  background-color: #002954;
+  color: white;
+}
+
+
+
+#sidebar-section {
+  background-color: #ededed;
+  overflow: auto;
+  height: 87vh;
+}
+
+#sidebar-section a {
+  background: linear-gradient(to right, rgb(216, 216, 216), rgb(164, 164, 164));
+  color: black;
+  border: 2px solid transparent;
+}
+
+#sidebar-section .active {
+  background-color: transparent;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+}
+
+
+
+#admin-section .admin-div {
+  height: 87vh;
+}
+
+#admin-section .admin-div h1 {
+  font-size: 32px;
+}
+
+#admin-section .admin-div h2 {
+  font-size: 32px;
+}
+
+#admin-section .admin-div .table-responsive {
+  height: 80%;
+}
+
+#admin-section .admin-div table {
+  font-size: 16px;
+}
+
+#admin-section .admin-div img {
+  width: 25%;
+  height: 100%;
+}
+
+#admin-section .admin-div .btn1 {
+  background-color: #0c58aa;
+}
+
+#admin-section .admin-div button {
+  background-color: #002954;
+  color: white;
+  border: 2px solid #002954;
+  font-size: 15px;
+}
+
+#admin-section .admin-div button:hover {
+  background-color: white;
+  color: #002954;
+  border: 2px solid #002954;
+}
+
+#admin-section .spinner {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #002954;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #admin-section .admin-div {
+    height: 93vh;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #admin-section .admin-div {
+    height: 90vh;
+  }
+
+  #admin-section .admin-div img {
+    width: 100%;
+    height: 100%;
+  }
+
+  #admin-section .admin-div h1 {
+    font-size: 23px;
+  }
+
+  #admin-section .admin-div h2 {
+    font-size: 18px;
+  }
+
+  #admin-section .admin-div table {
+    font-size: 14px;
+  }
+
+  #admin-section .admin-div button {
+    font-size: 13px;
+  }
+
+  #admin-section .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #002954;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+
+#edit-modal-section {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+#edit-modal-section .edit-modal-div {
+  background-color: white;
+  border-radius: 5px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#edit-modal-section img {
+  width: 20px;
+  top: 20px;
+  right: 20px;
+}
+
+#edit-modal-section h3 {
+  font-size: 28px;
+}
+
+#edit-modal-section .modal-body {
+  overflow-y: auto;
+}
+
+#edit-modal-section label {
+  font-size: 18px;
+}
+
+#edit-modal-section .error-input {
+  border: 1px solid red;
+}
+
+#edit-modal-section p {
+  color: red;
+  height: 22px;
+  font-size: 16px;
+}
+
+#edit-modal-section button {
+  background-color: #002954;
+  color: white;
+  border: 2px solid #002954;
+}
+
+#edit-modal-section button:hover {
+  background-color: white;
+  color: #002954;
+  border: 2px solid #002954;
+}
+
+#edit-modal-section .close-button {
+  background-color: #002954;
+  color: white;
+  border: 1px solid #002954;
+  height: auto;
+}
+
+#edit-modal-section .close-button:hover {
+  background-color: white;
+  color: #002954;
+  border: 1px solid #002954;
+}
+
+#edit-modal-section .spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #002954;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  animation: spin 1s linear infinite;
+}
+
+#edit-modal-section .modal-spinner {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #002954;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #edit-modal-section img {
+    width: 15px;
+    top: 15px;
+    right: 15px;
+  }
+
+  #edit-modal-section h3 {
+    font-size: 20px;
+  }
+
+  #edit-modal-section label {
+    font-size: 16px;
+  }
+
+  #edit-modal-section p {
+    height: 20px;
+    font-size: 14px;
+  }
+
+  #edit-modal-section button {
+    font-size: 14px;
+  }
+
+  #edit-modal-section .modal-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #002954;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+
+#notfound-section {
+  height: 100vh;
+}
+
+#notfound-section h1 {
+  font-size: 100px;
+}
+
+#notfound-section h2 {
+  letter-spacing: 3px;
+}
+
+#notfound-section p {
+  font-size: 20px;
+}
+
+#notfound-section .btn1 {
+  background-color: #002954;
+  color: white;
+  border: 2px solid #002954;
+}
+
+#notfound-section .btn1:hover {
+  background-color: white;
+  color: #002954;
+  border: 2px solid #002954;
+}
+
+#notfound-section .btn2 {
+  background-color: #0c58aa;
+  color: white;
+  border: 2px solid #002954;
+}
+
+#notfound-section .btn2:hover {
+  background-color: white;
+  color: #0c58aa;
+  border: 2px solid #002954;
+}

@@ -1,0 +1,139 @@
+#product-name-section img {
+    box-shadow: 0px 0px 10px 5px #bebebe;
+    width: 100%;
+    aspect-ratio: 1.44/1;
+}
+
+#product-name-section h3 {
+    font-size: 28px;
+}
+
+#product-name-section p {
+    font-size: 18px;
+}
+
+#product-name-section button {
+    background-color: #002954;
+    color: white;
+    border: 2px solid #002954;
+    font-size: 16px;
+}
+
+#product-name-section button:hover {
+    background-color: white;
+    color: #002954;
+    border: 2px solid #002954;
+}
+
+#product-name-section .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #002954;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #product-name-section .container {
+        max-width: 95%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #product-name-section h3 {
+        font-size: 22px;
+    }
+
+    #product-name-section p {
+        font-size: 14px;
+    }
+
+    #product-name-section button {
+        font-size: 14px;
+    }
+}
+
+
+
+#product-detail-section .col-12 {
+    border: 1px solid black;
+}
+
+#product-detail-section h4 {
+    font-size: 26px;
+}
+
+#product-detail-section .table-bordered {
+    border-color: black;
+}
+
+#product-detail-section p {
+    font-size: 18px;
+}
+
+#product-detail-section table th {
+    background-color: #e0e0e0;
+}
+
+@media screen and (max-width: 576px) {
+    #product-detail-section h4 {
+        font-size: 22px;
+    }
+
+    #product-detail-section p {
+        font-size: 16px;
+    }
+}
+
+
+
+#all-product-section .product-div {
+    border: 1px solid #002954;
+}
+
+#all-product-section .active-product-div {
+    border: 1px solid #002954;
+    background-color: rgb(237, 237, 237);
+}
+
+#all-product-section h4 {
+    font-size: 26px;
+}
+
+
+#all-product-section h5 {
+    font-size: 40px;
+}
+
+#all-product-section a {
+    border: 2px solid #002954;
+    color: #002954;
+    font-size: 16px;
+}
+
+#all-product-section a:hover {
+    border: 2px solid #002954;
+    color: white;
+    background-color: #002954;
+}
+
+@media screen and (max-width: 576px) {
+    #all-product-section h4 {
+        font-size: 22px;
+    }
+
+    #all-product-section h5 {
+        font-size: 24px;
+    }
+}

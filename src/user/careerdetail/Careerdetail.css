@@ -1,0 +1,81 @@
+#career-detail-section h2 {
+    font-size: 20px;
+}
+
+#career-detail-section p {
+    font-size: 18px;
+}
+
+#career-detail-section h3 {
+    font-size: 30px;
+}
+
+#career-detail-section form p {
+    font-size: 17px;
+    height: 18px;
+    color: red;
+}
+
+#career-detail-section .error-input {
+    border: 1px solid red;
+}
+
+#career-detail-section label {
+    font-size: 17px;
+}
+
+#career-detail-section button {
+    background-color: #002954;
+    color: white;
+    font-size: 16px;
+    border: 2px solid #002954;
+}
+
+#career-detail-section button:hover {
+    background-color: white;
+    color: #002954;
+    border: 2px solid #002954;
+}
+
+#career-detail-section .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #002954;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #career-detail-section .container {
+        max-width: 95%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #career-detail-section h2 {
+        font-size: 17px;
+    }
+
+    #career-detail-section p {
+        font-size: 15px;
+    }
+
+    #career-detail-section h3 {
+        font-size: 22px;
+    }
+
+    #career-detail-section button {
+        font-size: 14px;
+    }
+}
