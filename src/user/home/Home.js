@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function Home() {
 
@@ -47,7 +48,7 @@ function Home() {
 
     const handleNumbers = useCallback(async () => {
         try {
-            const res = await fetch(`/admin/fetchnumber`);
+            const res = await fetch(`${BASE_URL}/admin/fetchnumber`);
             const resData = await res.json();
             if (res.ok) {
                 const numberArr = resData.data;
@@ -74,8 +75,8 @@ function Home() {
 
     const handleMain = useCallback(async () => {
         const endpoints = [
-            'https://kgnbackend.onrender.com/user/fetchmain', 'https://kgnbackend.onrender.com/user/fetchhistory', 'https://kgnbackend.onrender.com/user/fetchproduct',
-            '/user/fetchcertificate', '/user/fetchpolicy', '/user/fetchfaq'
+            `${BASE_URL}/user/fetchmain`, `${BASE_URL}/user/fetchhistory`, `${BASE_URL}/user/fetchproduct`,
+            `${BASE_URL}/user/fetchcertificate`, `${BASE_URL}/user/fetchpolicy`, `${BASE_URL}/user/fetchfaq`
         ];
         try {
             const responses = await Promise.allSettled(endpoints.map(url => fetch(url).then(r => r.json())));
