@@ -74,7 +74,7 @@ function Home() {
 
     const handleMain = useCallback(async () => {
         const endpoints = [
-            '/user/fetchmain', '/user/fetchhistory', '/user/fetchproduct',
+            'https://kgnbackend.onrender.com/user/fetchmain', 'https://kgnbackend.onrender.com/user/fetchhistory', 'https://kgnbackend.onrender.com/user/fetchproduct',
             '/user/fetchcertificate', '/user/fetchpolicy', '/user/fetchfaq'
         ];
         try {
