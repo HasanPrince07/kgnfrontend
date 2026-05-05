@@ -194,7 +194,7 @@ function Home() {
                             {pageData.product.map((dt) => (
                                 <div key={dt._id} className="col-sm-4 px-lg-4 px-sm-3 px-5">
                                     <Link to={`/product/${dt._id}`} className="product-card position-relative d-block">
-                                        <img className="w-100 h-100 rounded-2" loading="lazy" src={dt.image} alt={dt.name} />
+                                        <img className="w-100 h-100 rounded-2" loading="lazy" src={`${BASE_URL}/${dt.image}`} alt={dt.name} />
                                         <div role="button" className="position-absolute hover-overlay top-0 bottom-0 start-0 end-0 d-flex justify-content-center align-items-center rounded-2">
                                             <h3 className="fw-bold text-uppercase">{dt.name}</h3>
                                         </div>
@@ -239,7 +239,7 @@ function Home() {
                         <div className="row justify-content-evenly align-items-center mt-sm-5 mt-4">
                             {pageData.certificate.map((src, index) => (
                                 <div key={index} className="col-lg-2 col-sm-3 col-8 py-sm-0 py-3 d-flex justify-content-center">
-                                    <img className="w-100 h-100" loading="lazy" src={src} alt={`certificate ${index + 1}`} />
+                                    <img className="w-100 h-100" loading="lazy" src={`${BASE_URL}/${src}`} alt={`certificate ${index + 1}`} />
                                 </div>
                             ))}
                         </div>
