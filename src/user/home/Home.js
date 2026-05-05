@@ -48,7 +48,7 @@ function Home() {
 
     const handleNumbers = useCallback(async () => {
         try {
-            const res = await fetch(`${BASE_URL}/admin/fetchnumber`);
+            const res = await fetch(`${BASE_URL}/user/fetchnumber`);
             const resData = await res.json();
             if (res.ok) {
                 const numberArr = resData.data;
