@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 const BASE_URL = process.env.REACT_APP_API_BASE_URL;
-const BACKEND_URL = "https://kgnbackend.onrender.com"; 
 
 function Home() {
 
@@ -144,7 +143,7 @@ function Home() {
                             <div className="col-12 outside-div pt-sm-3 pt-0 px-sm-4 px-0">
                                 <div className="position-relative">
                                     {pageData.main.images.length > 0 ?
-                                        <img key={pageData.main.imgIndex} className="w-100 object-fit-cover fade-in-image" src={`BACKEND_URL/public/${pageData.main.images[pageData.main.imgIndex]}`} alt="banner" fetchPriority="high" />
+                                        <img key={pageData.main.imgIndex} className="w-100 object-fit-cover fade-in-image" src={pageData.main.images[pageData.main.imgIndex]} alt="banner" fetchPriority="high" />
                                         : <div className="empty-div"></div>
                                     }
                                     <div className="d-flex align-items-center justify-content-center inside-div position-absolute top-0 bottom-0 start-0 end-0">
