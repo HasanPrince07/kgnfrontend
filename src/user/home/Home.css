@@ -171,6 +171,7 @@
 #number-section {
     background-color: #002954;
     color: white;
+    minimum-height: 10vh;
 }
 
 #number-section h2 {
