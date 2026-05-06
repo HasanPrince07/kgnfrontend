@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./login.css";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const INITIAL_STATE = { username: "", password: "" };
 
@@ -27,7 +28,7 @@ function Login() {
         }
         setLoading(true);
         try {
-            const res = await fetch(`/admin/login`, {
+            const res = await fetch(`${BASE_URL}/admin/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
