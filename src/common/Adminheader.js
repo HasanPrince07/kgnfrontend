@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const NAV_LINKS = [
     { name: "dashboard", path: "dashboard" },
@@ -32,7 +33,7 @@ function Adminheader() {
     const handleLogout = useCallback(async () => {
         setLoading(true);
         try {
-            const res = await fetch(`/admin/logout`, {
+            const res = await fetch(`${BASE_URL}/admin/logout`, {
                 method: "GET",
                 credentials: "include"
             });
