@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./Careerdetail.css";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const INITIAL_STATE = { name: "", email: "", phone: "", message: "", file: null }
 const WALLPAPER_INITIAL_STATE = { title: "", image: "" }
@@ -19,8 +20,8 @@ function Careerdetail() {
     const fetchCareerById = useCallback(async () => {
         try {
             const results = await Promise.allSettled([
-                fetch(`/user/fetchcareerbyid/${id}`).then(res => res.json()),
-                fetch(`/user/fetchwallpaper/4`).then(res => res.json())
+                fetch(`${BASE_URL}/user/fetchcareerbyid/${id}`).then(res => res.json()),
+                fetch(`${BASE_URL}/user/fetchwallpaper/4`).then(res => res.json())
             ]);
             if (results[0].status === 'fulfilled' && results[0].value.data) {
                 setCareer(results[0].value.data);
@@ -62,7 +63,7 @@ function Careerdetail() {
             formdata.append("phone", phone);
             formdata.append("message", message);
             formdata.append("file", file);
-            const res = await fetch(`/user/addapply`, {
+            const res = await fetch(`${BASE_URL}/user/addapply`, {
                 method: "POST",
                 body: formdata
             });
@@ -103,7 +104,7 @@ function Careerdetail() {
 
     return (
         <>
-            {wallpaper.image ? (<Wallpaper heading={wallpaper.title} imgSrc={wallpaper.image} />) : null}
+            {wallpaper.image ? (<Wallpaper heading={wallpaper.title} imgSrc={`${wallpaper.image}`} />) : null}
 
             <main>
                 <section id="career-detail-section" className="my-lg-5 my-4 py-lg-5 py-4">
