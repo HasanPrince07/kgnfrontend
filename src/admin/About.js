@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Sidebar from "../common/Sidebar";
 import { toast } from "react-toastify";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function AboutAdmin() {
     const [editModal, setEditModal] = useState(false);
@@ -23,7 +24,7 @@ function AboutAdmin() {
     const handleFetch = useCallback(async () => {
         setLoading(prev => ({ ...prev, table: true }));
         try {
-            const res = await fetch(`/admin/fetchabout`, {
+            const res = await fetch(`${BASE_URL}/admin/fetchabout`, {
                 credentials: "include"
             });
             const resData = await res.json();
@@ -72,7 +73,7 @@ function AboutAdmin() {
         });
         setLoading(prev => ({ ...prev, form: true }));
         try {
-            const res = await fetch(`/admin/updateabout/${data?._id}`, {
+            const res = await fetch(`${BASE_URL}/admin/updateabout/${data?._id}`, {
                 method: "PUT",
                 credentials: "include",
                 body: formdata
@@ -226,7 +227,7 @@ function AboutAdmin() {
                                         <div className="row mt-2 mb-3 align-items-center gy-2">
                                             {about.images?.map((img, index) => (
                                                 <div className="col-sm-4 col-6 position-relative" key={index}>
-                                                    <img className="w-100" src={img.preview ? img.preview : img} alt="not-found" />
+                                                    <img className="w-100" src={`${BASE_URL}/${img.preview ? img.preview : img}`} alt="not-found" />
                                                     <p onClick={() => handleRemove(img)} className="text-center close-button m-0">close</p>
                                                 </div>
                                             ))}
