@@ -41,7 +41,7 @@ function Career() {
 
     return (
         <>
-            {wallpaper.image ? (<Wallpaper heading={wallpaper.title} imgSrc={`${BASE_URL}/${wallpaper.image}`} />) : null}
+            {wallpaper.image ? (<Wallpaper heading={wallpaper.title} imgSrc={wallpaper.image} />) : null}
 
             <main>
                 <section id="career-form-section" className="my-lg-5 my-4 py-lg-5 py-4">
