@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Outlet, Navigate } from 'react-router-dom';
 import { Suspense, lazy, useEffect, useState } from "react";
 import { toast, ToastContainer } from 'react-toastify';
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const Header = lazy(() => import("./common/Header"));
 const Footer = lazy(() => import("./common/Footer"));
@@ -55,7 +56,7 @@ const ProtectedRoute = () => {
   useEffect(() => {
     const verifyUser = async () => {
       try {
-        const res = await fetch("/admin/checkAuth", {
+        const res = await fetch(`${BASE_URL}/admin/checkAuth`, {
           method: "GET",
           credentials: "include",
         });
