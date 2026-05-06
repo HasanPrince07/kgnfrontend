@@ -44,7 +44,7 @@ function Footer() {
 
     const ContactRow = ({ src, alt, text }) => (
         <div className="row py-1">
-            <div className="col-lg-2 col-12"><img className="contact-img" src={`${BASE_URL}/${src}`} alt={alt} /></div>
+            <div className="col-lg-2 col-12"><img className="contact-img" src={src} alt={alt} /></div>
             <div className="col-lg-10 col-12 contact-text pt-sm-0 pt-1">{text}</div>
         </div>
     );
