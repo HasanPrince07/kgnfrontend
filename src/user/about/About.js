@@ -46,7 +46,7 @@ function About() {
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-sm-6 px-lg-5 px-4">
-                                <img className="w-100 h-100 rounded-2" src={`${BASE_URL}/${about.images?.[0]}` || `media/user.png`} alt="owner" />
+                                <img className="w-100 h-100 rounded-2" src={about.images?.[0] || `media/user.png`} alt="owner" />
                             </div>
                             <div className="col-sm-6 px-lg-5 px-4">
                                 <h3 className="fw-bold text-uppercase mt-sm-0 mt-4">{about.title}</h3>
