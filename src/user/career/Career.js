@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Wallpaper from "../../common/Wallpaper";
 import { Link } from "react-router-dom";
 import "./Career.css";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const WALLPAPER_INITIAL_STATE = { title: "", image: "" }
 
@@ -14,8 +15,8 @@ function Career() {
         const fetchAll = async () => {
             try {
                 const results = await Promise.allSettled([
-                    fetch("/user/fetchcareer").then(res => res.json()),
-                    fetch(`/user/fetchwallpaper/3`).then(res => res.json())
+                    fetch(`${BASE_URL}/user/fetchcareer`).then(res => res.json()),
+                    fetch(`${BASE_URL}/user/fetchwallpaper/3`).then(res => res.json())
                 ]);
                 if (results[0].status === 'fulfilled' && results[0].value.data) {
                     setCareer(results[0].value.data);
@@ -40,7 +41,7 @@ function Career() {
 
     return (
         <>
-            {wallpaper.image ? (<Wallpaper heading={wallpaper.title} imgSrc={wallpaper.image} />) : null}
+            {wallpaper.image ? (<Wallpaper heading={wallpaper.title} imgSrc={`${BASE_URL}/${wallpaper.image}`} />) : null}
 
             <main>
                 <section id="career-form-section" className="my-lg-5 my-4 py-lg-5 py-4">
