@@ -3,6 +3,7 @@ import Wallpaper from "../../common/Wallpaper";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "./Product.css";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const WALLPAPER_INITIAL_STATE = { title: "", image: "" }
 
@@ -27,8 +28,8 @@ function Product() {
         const fetchAll = async () => {
             try {
                 const results = await Promise.allSettled([
-                    fetch("/user/fetchproduct").then(res => res.json()),
-                    fetch(`/user/fetchwallpaper/2`).then(res => res.json())
+                    fetch(`${BASE_URL}/user/fetchproduct`).then(res => res.json()),
+                    fetch(`${BASE_URL}/user/fetchwallpaper/2`).then(res => res.json())
                 ]);
                 if (results[0].status === 'fulfilled' && results[0].value.data) {
                     setProducts(results[0].value.data);
@@ -51,7 +52,7 @@ function Product() {
 
     useEffect(() => {
         const fetchCurrent = async () => {
-            const url = id ? `/user/fetchproductbyid/${id}` : `/user/fetchfirstproduct`
+            const url = id ? `${BASE_URL}/user/fetchproductbyid/${id}` : `${BASE_URL}/user/fetchfirstproduct`
             try {
                 const res = await fetch(url);
                 const resData = await res.json();
@@ -75,7 +76,7 @@ function Product() {
     const handleBrochure = async () => {
         try {
             setLoading(true);
-            const res = await fetch(`/user/downloadbrochure`, {
+            const res = await fetch(`${BASE_URL}/user/downloadbrochure`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(product)
@@ -105,14 +106,14 @@ function Product() {
 
     return (
         <>
-            {wallpaper.image ? (<Wallpaper heading={wallpaper.title} imgSrc={wallpaper.image} />) : null}
+            {wallpaper.image ? (<Wallpaper heading={wallpaper.title} imgSrc={`${BASE_URL}/${wallpaper.image}`} />) : null}
 
             <main>
                 <section id="product-name-section" className="my-lg-5 my-4 py-lg-5 py-4">
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-sm-6 px-lg-5 px-4">
-                                <img className="rounded-2" src={`/${product?.image}`} alt={product?.name} />
+                                <img className="rounded-2" src={`${BASE_URL}/${product?.image}`} alt={product?.name} />
                             </div>
                             <div className="col-sm-6 px-lg-5 px-4">
                                 <h3 className="fw-bold text-uppercase mt-sm-0 mt-4">{product?.name}</h3>
