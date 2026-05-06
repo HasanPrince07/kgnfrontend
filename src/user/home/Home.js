@@ -10,7 +10,7 @@ function Home() {
         history: [],
         product: [],
         numbers: {},
-        numberList: [],
+        numberList: [{ number: 0, title: "clients" }, { number: 0, title: "cities" }, { number: 0, title: "products" }, { number: 0, title: "years" }],
         certificate: [],
         policy: "",
         faq: []
