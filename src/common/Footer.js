@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const QUICK_LINKS = ["Home", "About", "Product", "Career", "Contact"];
 
@@ -15,8 +16,8 @@ function Footer() {
 
     const handleFetch = useCallback(async () => {
         const endpoints = [
-            { url: '/user/fetchcontact', setter: setContact },
-            { url: '/user/fetchproduct', setter: setProduct }
+            { url: `${BASE_URL}/user/fetchcontact`, setter: setContact },
+            { url: `${BASE_URL}/user/fetchproduct`, setter: setProduct }
         ];
         try {
             const results = await Promise.allSettled(
@@ -43,7 +44,7 @@ function Footer() {
 
     const ContactRow = ({ src, alt, text }) => (
         <div className="row py-1">
-            <div className="col-lg-2 col-12"><img className="contact-img" src={src} alt={alt} /></div>
+            <div className="col-lg-2 col-12"><img className="contact-img" src={`${BASE_URL}/${src}`} alt={alt} /></div>
             <div className="col-lg-10 col-12 contact-text pt-sm-0 pt-1">{text}</div>
         </div>
     );
