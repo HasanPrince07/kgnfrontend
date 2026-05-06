@@ -2,6 +2,7 @@ import Wallpaper from "../../common/Wallpaper";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "./Contact.css";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const CONTACT_INITIAL_STATE = { image: "", phone: "", email: "", address: "", map: "" }
 const CFORM_INITIAL_STATE = { cName: "", cEmail: "", cPhone: "", cMessage: "" }
@@ -18,8 +19,8 @@ function Contact() {
     const fetchData = useCallback(async () => {
         try {
             const results = await Promise.allSettled([
-                fetch("/user/fetchcontact").then(res => res.json()),
-                fetch(`/user/fetchwallpaper/5`).then(res => res.json())
+                fetch(`${BASE_URL}/user/fetchcontact`).then(res => res.json()),
+                fetch(`${BASE_URL}/user/fetchwallpaper/5`).then(res => res.json())
             ]);
             if (results[0].status === 'fulfilled' && results[0].value.data) {
                 setContact(results[0].value.data);
@@ -66,7 +67,7 @@ function Contact() {
         }
         setLoading(true);
         try {
-            const res = await fetch(`/user/addquery`, {
+            const res = await fetch(`${BASE_URL}/user/addquery`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formdata)
@@ -97,7 +98,7 @@ function Contact() {
 
     return (
         <>
-            {wallpaper.image ? (<Wallpaper heading={wallpaper.title} imgSrc={wallpaper.image} />) : null}
+            {wallpaper.image ? (<Wallpaper heading={wallpaper.title} imgSrc={`${BASE_URL}/${wallpaper.image}`} />) : null}
             <main>
                 <section id="contact-page-section" className="my-lg-5 my-4 py-lg-5 py-4">
                     <div className="container">
@@ -108,7 +109,7 @@ function Contact() {
                         </div>
                         <div className="row align-items-center mt-lg-5 mt-4">
                             <div className="col-sm-6 px-lg-5 px-4">
-                                {contact?.image && <img className="w-100 rounded-2" src={contact.image} alt="not-found" />}
+                                {contact?.image && <img className="w-100 rounded-2" src={`${BASE_URL}/${contact.image}`} alt="not-found" />}
                             </div>
                             <div className="col-sm-6 px-lg-5 px-4 mt-sm-0 mt-5">
                                 <form onSubmit={handleForm}>
@@ -140,7 +141,7 @@ function Contact() {
                             {CONTACT_LINKS.map((link, index) => (
                                 <div key={index} className="col-sm-4 py-sm-0 py-3">
                                     <div className="d-flex justify-content-center">
-                                        <img src={link.icon} alt={link.alt} />
+                                        <img src={`${BASE_URL}/${link.icon}`} alt={link.alt} />
                                     </div>
                                     <p className="text-center mb-0 mt-sm-4 mt-3">{link.text}</p>
                                 </div>
@@ -154,7 +155,7 @@ function Contact() {
                         <div className="row">
                             <div className="col-12">
                                 {contact?.map && (
-                                    <iframe src={contact.map} width="100%" height="500" title="kgnelectrodes_map" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" ></iframe>
+                                    <iframe src={`${BASE_URL}/${contact.map}`} width="100%" height="500" title="kgnelectrodes_map" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" ></iframe>
                                 )}
                             </div>
                         </div>
