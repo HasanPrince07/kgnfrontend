@@ -227,7 +227,7 @@ function AboutAdmin() {
                                         <div className="row mt-2 mb-3 align-items-center gy-2">
                                             {about.images?.map((img, index) => (
                                                 <div className="col-sm-4 col-6 position-relative" key={index}>
-                                                    <img className="w-100" src={`${BASE_URL}/${img.preview ? img.preview : img}`} alt="not-found" />
+                                                    <img className="w-100" src={img.preview ? img.preview : `${BASE_URL}/${img}`} alt="not-found" />
                                                     <p onClick={() => handleRemove(img)} className="text-center close-button m-0">close</p>
                                                 </div>
                                             ))}
