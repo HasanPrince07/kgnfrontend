@@ -3,8 +3,8 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./Careerdetail.css";
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const INITIAL_STATE = { name: "", email: "", phone: "", message: "", file: null }
 const WALLPAPER_INITIAL_STATE = { title: "", image: "" }
 
