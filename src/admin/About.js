@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Sidebar from "../common/Sidebar";
 import { toast } from "react-toastify";
+
 const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function AboutAdmin() {
