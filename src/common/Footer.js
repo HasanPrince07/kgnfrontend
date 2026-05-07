@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const QUICK_LINKS = ["Home", "About", "Product", "Career", "Contact"];
 
 function Footer() {
