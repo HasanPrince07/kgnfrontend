@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import Sidebar from "../common/Sidebar";
 import { useCallback, useEffect, useState } from "react";
+
 const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function Apply() {
@@ -238,7 +239,7 @@ function Apply() {
                                             {apply.file === "none" ? <label className="mt-3">cv/resume not available</label> :
                                                 <>
                                                     <label className="mb-1 mt-3">CV/Resume</label>
-                                                    <img className="w-100" src={`${BASE_URL}/${apply.file}`} alt="not-found" />
+                                                    <img className="w-100" src={apply.file} alt="not-found" />
                                                 </>
                                             }
 
