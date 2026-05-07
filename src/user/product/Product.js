@@ -3,8 +3,8 @@ import Wallpaper from "../../common/Wallpaper";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "./Product.css";
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const WALLPAPER_INITIAL_STATE = { title: "", image: "" }
 
 function Product() {
@@ -103,7 +103,6 @@ function Product() {
         }
     }
 
-
     return (
         <>
             {wallpaper.image ? (<Wallpaper heading={wallpaper.title} imgSrc={wallpaper.image} />) : null}
@@ -113,7 +112,7 @@ function Product() {
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-sm-6 px-lg-5 px-4">
-                                <img className="rounded-2" src={`${BASE_URL}/${product?.image}`} alt={product?.name} />
+                                <img className="rounded-2" src={product?.image} alt={product?.name} />
                             </div>
                             <div className="col-sm-6 px-lg-5 px-4">
                                 <h3 className="fw-bold text-uppercase mt-sm-0 mt-4">{product?.name}</h3>
