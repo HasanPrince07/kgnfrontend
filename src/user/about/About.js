@@ -93,20 +93,20 @@ function About() {
                             <div className="col-sm-6 col-12">
                                 <div className="row">
                                     <div className="col-12 p-2">
-                                        <img className="w-100 h-100 rounded-2 object-fit-cover" src={`${BASE_URL}/${about.images?.[1]}`} alt="gallery 1" />
+                                        <img className="w-100 h-100 rounded-2 object-fit-cover" src={about.images?.[1]} alt="gallery 1" />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-sm-6 col-12 p-2">
-                                        <img className="w-100 h-100 rounded-2 object-fit-cover" src={`${BASE_URL}/${about.images?.[2]}`} alt="gallery 2" />
+                                        <img className="w-100 h-100 rounded-2 object-fit-cover" src={about.images?.[2]} alt="gallery 2" />
                                     </div>
                                     <div className="col-sm-6 col-12 p-2">
-                                        <img className="w-100 h-100 rounded-2 object-fit-cover" src={`${BASE_URL}/${about.images?.[3]}`} alt="gallery 3" />
+                                        <img className="w-100 h-100 rounded-2 object-fit-cover" src={about.images?.[3]} alt="gallery 3" />
                                     </div>
                                 </div>
                             </div>
                             <div className="col-sm-6 col-12 p-2">
-                                <img className="w-100 h-100 h-100 rounded-2 object-fit-cover" src={`${BASE_URL}/${about.images?.[4]}`} alt="gallery 4" />
+                                <img className="w-100 h-100 h-100 rounded-2 object-fit-cover" src={about.images?.[4]} alt="gallery 4" />
                             </div>
                         </div>
                     </div>
