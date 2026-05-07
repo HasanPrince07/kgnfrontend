@@ -2,8 +2,8 @@ import Wallpaper from "../../common/Wallpaper";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "./Contact.css";
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const CONTACT_INITIAL_STATE = { image: "", phone: "", email: "", address: "", map: "" }
 const CFORM_INITIAL_STATE = { cName: "", cEmail: "", cPhone: "", cMessage: "" }
 const WALLPAPER_INITIAL_STATE = { title: "", image: "" }
@@ -109,7 +109,7 @@ function Contact() {
                         </div>
                         <div className="row align-items-center mt-lg-5 mt-4">
                             <div className="col-sm-6 px-lg-5 px-4">
-                                {contact?.image && <img className="w-100 rounded-2" src={`${BASE_URL}/${contact.image}`} alt="not-found" />}
+                                {contact?.image && <img className="w-100 rounded-2" src={contact.image} alt="not-found" />}
                             </div>
                             <div className="col-sm-6 px-lg-5 px-4 mt-sm-0 mt-5">
                                 <form onSubmit={handleForm}>
@@ -141,7 +141,7 @@ function Contact() {
                             {CONTACT_LINKS.map((link, index) => (
                                 <div key={index} className="col-sm-4 py-sm-0 py-3">
                                     <div className="d-flex justify-content-center">
-                                        <img src={`${BASE_URL}/${link.icon}`} alt={link.alt} />
+                                        <img src={link.icon} alt={link.alt} />
                                     </div>
                                     <p className="text-center mb-0 mt-sm-4 mt-3">{link.text}</p>
                                 </div>
@@ -155,7 +155,7 @@ function Contact() {
                         <div className="row">
                             <div className="col-12">
                                 {contact?.map && (
-                                    <iframe src={`${BASE_URL}/${contact.map}`} width="100%" height="500" title="kgnelectrodes_map" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" ></iframe>
+                                    <iframe src={contact.map} width="100%" height="500" title="kgnelectrodes_map" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" ></iframe>
                                 )}
                             </div>
                         </div>
