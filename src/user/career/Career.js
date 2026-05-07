@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Wallpaper from "../../common/Wallpaper";
 import { Link } from "react-router-dom";
 import "./Career.css";
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const WALLPAPER_INITIAL_STATE = { title: "", image: "" }
 
 function Career() {
