@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./login.css";
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const INITIAL_STATE = { username: "", password: "" };
 
 function Login() {
