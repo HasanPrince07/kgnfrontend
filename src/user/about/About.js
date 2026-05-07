@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import Wallpaper from "../../common/Wallpaper";
 import "./About.css";
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const ABOUT_INITIAL_STATE = { title: "", description: "", company: "", vision: "", features: [], chooseus: [], images: [] }
 const WALLPAPER_INITIAL_STATE = { title: "", image: "" }
 
