@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import Sidebar from "../common/Sidebar";
 import { toast } from "react-toastify";
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL
+
 function Wallpaper() {
     const [modal, setModal] = useState(false);
     const [data, setData] = useState([]);
@@ -20,7 +22,7 @@ function Wallpaper() {
     const handleFetch = useCallback(async () => {
         setLoading(prev => ({ ...prev, table: true }));
         try {
-            const res = await fetch(`/admin/fetchwallpaper/0`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchwallpaper/0`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -49,7 +51,7 @@ function Wallpaper() {
     const fetchByID = useCallback(async (id) => {
         setLoading(prev => ({ ...prev, modal: true }));
         try {
-            const res = await fetch(`/admin/fetchwallpaperbyid/${id}`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchwallpaperbyid/${id}`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -86,7 +88,7 @@ function Wallpaper() {
         }
         setLoading(prev => ({ ...prev, form: true }));
         try {
-            const res = await fetch(`/admin/updatewallpaper/${id}`, {
+            const res = await fetch(`${BASE_URL}/admin/updatewallpaper/${id}`, {
                 method: "PUT",
                 credentials: "include",
                 body: formdata
