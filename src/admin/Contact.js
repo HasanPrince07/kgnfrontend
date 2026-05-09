@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import Sidebar from "../common/Sidebar";
 import { toast } from "react-toastify";
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 function Contact() {
     const [editModal, setEditModal] = useState(false);
     const [data, setData] = useState(null);
@@ -25,7 +27,7 @@ function Contact() {
     const handleFetch = useCallback(async () => {
         setLoading(prev => ({ ...prev, table: true }));
         try {
-            const res = await fetch(`/admin/fetchcontact`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchcontact`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -74,7 +76,7 @@ function Contact() {
         }
         setLoading(prev => ({ ...prev, form: true }));
         try {
-            const res = await fetch(`/admin/updatecontact/${data?._id}`, {
+            const res = await fetch(`${BASE_URL}/admin/updatecontact/${data?._id}`, {
                 method: "PUT",
                 credentials: "include",
                 body: formdata
