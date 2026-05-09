@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import Sidebar from "../common/Sidebar";
 import { toast } from "react-toastify";
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 function Certificate() {
     const [editModal, setEditModal] = useState(false);
     const [selectedImages, setSelectedImages] = useState([]);
@@ -14,7 +16,7 @@ function Certificate() {
     const handleFetch = useCallback(async () => {
         setLoading(prev => ({ ...prev, table: true }));
         try {
-            const res = await fetch(`/admin/fetchcertificate`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchcertificate`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -52,7 +54,7 @@ function Certificate() {
         });
         setLoading(prev => ({ ...prev, form: true }));
         try {
-            const res = await fetch(`/admin/updatecertificate/${data?._id}`, {
+            const res = await fetch(`${BASE_URL}/admin/updatecertificate/${data?._id}`, {
                 method: "PUT",
                 credentials: "include",
                 body: formdata
