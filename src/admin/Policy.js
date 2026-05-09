@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import Sidebar from "../common/Sidebar";
 import { toast } from "react-toastify";
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 function Policy() {
     const [editModal, setEditModal] = useState(false);
     const [description, setDescription] = useState("");
@@ -15,7 +17,7 @@ function Policy() {
     const handleFetch = useCallback(async () => {
         setLoading(prev => ({ ...prev, table: true }));
         try {
-            const res = await fetch(`/admin/fetchpolicy`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchpolicy`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -50,7 +52,7 @@ function Policy() {
         } else {
             setLoading(prev => ({ ...prev, form: true }));
             try {
-                const res = await fetch(`/admin/updatepolicy/${data?._id}`, {
+                const res = await fetch(`${BASE_URL}/admin/updatepolicy/${data?._id}`, {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     credentials: "include",
