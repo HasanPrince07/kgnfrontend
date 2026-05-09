@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import Sidebar from "../common/Sidebar";
 import { toast } from "react-toastify";
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 function Mainmt() {
     const [editModal, setEditModal] = useState(false);
     const [data, setData] = useState(null);
@@ -19,7 +21,7 @@ function Mainmt() {
     const handleFetch = useCallback(async () => {
         setLoading(prev => ({ ...prev, table: true }));
         try {
-            const res = await fetch(`/admin/fetchmain`, {
+            const res = await fetch(`${BASE_URL}/admin/fetchmain`, {
                 credentials: "include"
             });
             const resData = await res.json();
@@ -64,7 +66,7 @@ function Mainmt() {
         });
         setLoading(prev => ({ ...prev, form: true }));
         try {
-            const res = await fetch(`/admin/updatemain/${data?._id}`, {
+            const res = await fetch(`${BASE_URL}/admin/updatemain/${data?._id}`, {
                 method: "PUT",
                 credentials: "include",
                 body: formdata
