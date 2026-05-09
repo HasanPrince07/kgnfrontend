@@ -2,6 +2,8 @@ import { toast } from "react-toastify";
 import Sidebar from "../common/Sidebar";
 import { useCallback, useEffect, useState } from "react";
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 function History() {
 
     const [data, setData] = useState([]);
@@ -18,7 +20,7 @@ function History() {
     const handleFetch = useCallback(async () => {
         setLoading(prev => ({ ...prev, table: true }));
         try {
-            const res = await fetch(`/admin/fetchhistory`, {
+            const res = await fetch(`${BASE_URL}/admin/fetchhistory`, {
                 credentials: "include"
             });
             const resData = await res.json();
@@ -47,7 +49,7 @@ function History() {
     const fetchByID = useCallback(async (id) => {
         setLoading(prev => ({ ...prev, modal: true }));
         try {
-            const res = await fetch(`/admin/fetchhistorybyid/${id}`, {
+            const res = await fetch(`${BASE_URL}/admin/fetchhistorybyid/${id}`, {
                 credentials: "include"
             });
             const resData = await res.json();
@@ -79,7 +81,7 @@ function History() {
         }
         setLoading(prev => ({ ...prev, form: true }));
         try {
-            const res = await fetch(`/admin/actionhistory/${id}`, {
+            const res = await fetch(`${BASE_URL}/admin/actionhistory/${id}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
@@ -108,7 +110,7 @@ function History() {
 
     const handleDelete = async () => {
         try {
-            const res = await fetch(`/admin/deletehistory/${id}`, {
+            const res = await fetch(`${BASE_URL}/admin/deletehistory/${id}`, {
                 credentials: "include"
             });
             const resData = await res.json();
