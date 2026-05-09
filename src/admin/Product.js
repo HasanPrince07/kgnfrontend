@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import Sidebar from "../common/Sidebar";
 import { toast } from "react-toastify";
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 function ProductAdmin() {
     const [data, setData] = useState([]);
     const [product, setProduct] = useState({
@@ -26,7 +28,7 @@ function ProductAdmin() {
     const handleFetch = useCallback(async () => {
         setLoading(prev => ({ ...prev, table: true }));
         try {
-            const res = await fetch(`/admin/fetchproduct`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchproduct`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -55,7 +57,7 @@ function ProductAdmin() {
     const fetchByID = useCallback(async (id) => {
         setLoading(prev => ({ ...prev, modal: true }));
         try {
-            const res = await fetch(`/admin/fetchproductbyid/${id}`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchproductbyid/${id}`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -104,7 +106,7 @@ function ProductAdmin() {
         }
         setLoading(prev => ({ ...prev, form: true }));
         try {
-            const res = await fetch(`/admin/addproduct`, {
+            const res = await fetch(`${BASE_URL}/admin/addproduct`, {
                 method: "POST",
                 credentials: "include",
                 body: formdata
@@ -128,7 +130,7 @@ function ProductAdmin() {
 
     const handleDelete = async () => {
         try {
-            const res = await fetch(`/admin/deleteproduct/${id}`,{
+            const res = await fetch(`${BASE_URL}/admin/deleteproduct/${id}`,{
                 credentials: "include"
             });
             const resData = await res.json();
