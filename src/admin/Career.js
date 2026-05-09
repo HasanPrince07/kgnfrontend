@@ -2,6 +2,8 @@ import { toast } from "react-toastify";
 import Sidebar from "../common/Sidebar";
 import { useCallback, useEffect, useState } from "react";
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 function Career() {
 
     const [data, setData] = useState([]);
@@ -18,7 +20,7 @@ function Career() {
     const handleFetch = useCallback(async () => {
         setLoading(prev => ({ ...prev, table: true }));
         try {
-            const res = await fetch(`/admin/fetchcareer`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchcareer`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -47,7 +49,7 @@ function Career() {
     const fetchByID = useCallback(async (id) => {
         setLoading(prev => ({ ...prev, modal: true }));
         try {
-            const res = await fetch(`/admin/fetchcareerbyid/${id}`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchcareerbyid/${id}`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -85,7 +87,7 @@ function Career() {
         }
         setLoading(prev => ({ ...prev, form: true }));
         try {
-            const res = await fetch(`/admin/actioncareer/${id}`, {
+            const res = await fetch(`${BASE_URL}/admin/actioncareer/${id}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
@@ -114,7 +116,7 @@ function Career() {
 
     const handleDelete = async () => {
         try {
-            const res = await fetch(`/admin/deletecareer/${id}`,{
+            const res = await fetch(`${BASE_URL}/admin/deletecareer/${id}`,{
                 credentials: "include"
             });
             const resData = await res.json();
