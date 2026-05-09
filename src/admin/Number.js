@@ -2,6 +2,8 @@ import { toast } from "react-toastify";
 import Sidebar from "../common/Sidebar";
 import { useCallback, useEffect, useState } from "react";
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 function Number() {
 
     const [data, setData] = useState([]);
@@ -18,7 +20,7 @@ function Number() {
     const handleFetch = useCallback(async () => {
         setLoading(prev => ({ ...prev, table: true }));
         try {
-            const res = await fetch(`/admin/fetchnumber`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchnumber`,{
                 credentials:"include"
             });
             const resData = await res.json();
@@ -47,7 +49,7 @@ function Number() {
     const fetchByID = useCallback(async (id) => {
         setLoading(prev => ({ ...prev, modal: true }));
         try {
-            const res = await fetch(`/admin/fetchnumberbyid/${id}`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchnumberbyid/${id}`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -79,7 +81,7 @@ function Number() {
         }
         setLoading(prev => ({ ...prev, form: true }));
         try {
-            const res = await fetch(`/admin/actionnumber/${id}`, {
+            const res = await fetch(`${BASE_URL}/admin/actionnumber/${id}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
@@ -108,7 +110,7 @@ function Number() {
 
     const handleDelete = async () => {
         try {
-            const res = await fetch(`/admin/deletenumber/${id}`,{
+            const res = await fetch(`${BASE_URL}/admin/deletenumber/${id}`,{
                 credentials: "include"
             });
             const resData = await res.json();
