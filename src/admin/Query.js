@@ -2,6 +2,8 @@ import { toast } from "react-toastify";
 import Sidebar from "../common/Sidebar";
 import { useCallback, useEffect, useState } from "react";
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 function Query() {
 
     const [data, setData] = useState([]);
@@ -21,7 +23,7 @@ function Query() {
     const handleFetch = useCallback(async () => {
         setLoading(prev => ({ ...prev, table: true }));
         try {
-            const res = await fetch(`/admin/fetchquery/${select}`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchquery/${select}`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -63,7 +65,7 @@ function Query() {
         formdata.append("image", image.file);
         setLoading(prev => ({ ...prev, form: true }));
         try {
-            const res = await fetch(`/admin/replyquery/${id}`, {
+            const res = await fetch(`${BASE_URL}/admin/replyquery/${id}`, {
                 method: "POST",
                 credentials: "include",
                 body: formdata
@@ -88,7 +90,7 @@ function Query() {
     const fetchByID = useCallback(async (id) => {
         setLoading(prev => ({ ...prev, modal: true }));
         try {
-            const res = await fetch(`/admin/fetchquerybyid/${id}`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchquerybyid/${id}`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -113,7 +115,7 @@ function Query() {
 
     const handleDelete = async () => {
         try {
-            const res = await fetch(`/admin/deletequery/${id}`,{
+            const res = await fetch(`${BASE_URL}/admin/deletequery/${id}`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -133,7 +135,7 @@ function Query() {
 
     const handleMultiDelete = async () => {
         try {
-            const res = await fetch(`/admin/multideletequery`, {
+            const res = await fetch(`${BASE_URL}/admin/multideletequery`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
