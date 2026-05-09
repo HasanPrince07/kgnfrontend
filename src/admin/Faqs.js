@@ -2,6 +2,8 @@ import { toast } from "react-toastify";
 import Sidebar from "../common/Sidebar";
 import { useCallback, useEffect, useState } from "react";
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 function Faqs() {
 
     const [data, setData] = useState([]);
@@ -18,7 +20,7 @@ function Faqs() {
     const handleFetch = useCallback(async () => {
         setLoading(prev => ({ ...prev, table: true }));
         try {
-            const res = await fetch(`/admin/fetchfaq`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchfaq`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -47,7 +49,7 @@ function Faqs() {
     const fetchByID = useCallback(async (id) => {
         setLoading(prev => ({ ...prev, modal: true }));
         try {
-            const res = await fetch(`/admin/fetchfaqbyid/${id}`,{
+            const res = await fetch(`${BASE_URL}/admin/fetchfaqbyid/${id}`,{
                 credentials: "include"
             });
             const resData = await res.json();
@@ -79,7 +81,7 @@ function Faqs() {
         }
         setLoading(prev => ({ ...prev, form: true }));
         try {
-            const res = await fetch(`/admin/actionfaq/${id}`, {
+            const res = await fetch(`${BASE_URL}/admin/actionfaq/${id}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
@@ -108,7 +110,7 @@ function Faqs() {
 
     const handleDelete = async () => {
         try {
-            const res = await fetch(`/admin/deletefaq/${id}`,{
+            const res = await fetch(`${BASE_URL}/admin/deletefaq/${id}`,{
                 credentials: "include"
             });
             const resData = await res.json();
