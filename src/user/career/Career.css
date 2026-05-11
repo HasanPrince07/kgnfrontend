@@ -6,6 +6,10 @@
     border-color: black;
 }
 
+#career-form-section table {
+    font-size: 18px;
+}
+
 #career-form-section table th {
     background-color: #e0e0e0;
 }
