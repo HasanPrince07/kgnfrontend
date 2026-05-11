@@ -117,7 +117,7 @@ function Product() {
                             <div className="col-sm-6 px-lg-5 px-4">
                                 <h3 className="fw-bold text-uppercase mt-sm-0 mt-4">{product?.name}</h3>
                                 <p>{product?.description}</p>
-                                <div className="col-6">
+                                <div className="col-sm-6 col-12">
                                     <button onClick={handleBrochure} disabled={loading} className="btn text-uppercase fw-bold rounded-0 form-control">{loading ? <><div className="spinner mx-auto"></div></> : "download brochure"}</button>
                                 </div>
                             </div>
