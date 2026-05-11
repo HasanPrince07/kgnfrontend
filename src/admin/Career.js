@@ -115,7 +115,7 @@ function Career() {
     }
 
     const handleDelete = async () => {
-        setLoading(prev => ({ ...prev, table: true }));
+        setLoading(prev => ({ ...prev, form: true }));
         try {
             const res = await fetch(`${BASE_URL}/admin/deletecareer/${id}`,{
                 credentials: "include"
@@ -133,7 +133,7 @@ function Career() {
             toast("Network error, please check your internet", { type: "error" });
             console.log("Error during delete career data:", error);
         } finally {
-            setLoading(prev => ({ ...prev, table: false }));
+            setLoading(prev => ({ ...prev, form: false }));
         }
     }
 
