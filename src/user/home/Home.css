@@ -161,6 +161,11 @@
         font-size: 24px;
     }
 
+    #product-section h3 {
+        font-size: 25px;
+        letter-spacing: 10px;
+    }
+
     #product-section .see-all-btn {
         font-size: 16px;
     }
