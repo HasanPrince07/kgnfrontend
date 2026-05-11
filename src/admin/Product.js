@@ -129,6 +129,7 @@ function ProductAdmin() {
     }
 
     const handleDelete = async () => {
+        setLoading(prev => ({ ...prev, form: true }));
         try {
             const res = await fetch(`${BASE_URL}/admin/deleteproduct/${id}`,{
                 credentials: "include"
@@ -145,6 +146,8 @@ function ProductAdmin() {
         } catch (error) {
             toast("Network error, please check your internet", { type: "error" });
             console.log("Error during delete product data:", error);
+        } finally {
+            setLoading(prev => ({ ...prev, form: false }));
         }
     }
 
@@ -369,7 +372,7 @@ function ProductAdmin() {
                                 <h3 className="text-center text-uppercase fw-bold mb-sm-4 mb-3">Are you sure you want to delete?</h3>
                                 <div className="d-flex">
                                     <button onClick={() => handleDeleteModal(false)} className="btn form-control text-uppercase rounded-0 shadow-none fw-bold mx-2">cancel</button>
-                                    <button onClick={handleDelete} className="btn form-control text-uppercase rounded-0 shadow-none fw-bold mx-2">delete</button>
+                                    <button onClick={handleDelete} disabled={loading.form} className="btn form-control text-uppercase rounded-0 shadow-none fw-bold mx-2">{loading.form ? <><div className="spinner mx-auto"></div></> : "delete"}</button>
                                 </div>
                             </div>
                         </div>
