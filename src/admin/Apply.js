@@ -14,6 +14,7 @@ function Apply() {
     const [loading, setLoading] = useState({
         table: false,
         modal: false,
+        form: false
     });
 
     const handleFetch = useCallback(async () => {
