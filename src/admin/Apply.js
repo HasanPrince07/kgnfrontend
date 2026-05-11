@@ -75,7 +75,7 @@ function Apply() {
     }, []);
 
     const handleDelete = async () => {
-        setLoading(prev => ({ ...prev, table: true }));
+        setLoading(prev => ({ ...prev, form: true }));
         try {
             const res = await fetch(`${BASE_URL}/admin/deleteapply/${id}`,{
                 credentials: "include"
@@ -93,12 +93,12 @@ function Apply() {
             toast("Network error, please check your internet", { type: "error" });
             console.log("Error during single delete apply data:", error);
         } finally {
-            setLoading(prev => ({ ...prev, table: false }));
+            setLoading(prev => ({ ...prev, form: false }));
         }
     }
 
     const handleMultiDelete = async () => {
-        setLoading(prev => ({ ...prev, table: true }));
+        setLoading(prev => ({ ...prev, form: true }));
         try {
             const res = await fetch(`${BASE_URL}/admin/multideleteapply`, {
                 method: "POST",
@@ -119,7 +119,7 @@ function Apply() {
             toast("Network error, please check your internet", { type: "error" });
             console.log("Error during multi delete apply data:", error);
         } finally {
-            setLoading(prev => ({ ...prev, table: false }));
+            setLoading(prev => ({ ...prev, form: false }));
         }
     }
 
