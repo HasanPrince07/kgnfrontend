@@ -633,11 +633,19 @@ code {
 }
 
 @media screen and (max-width: 576px) {
+  #notfound-section h1 {
+  font-size: 80px;
+  }
+
+  #notfound-section h2 {
+  font-size: 20px;
+  }
+  
   #notfound-section p {
     font-size: 15px;
   }
 
   #notfound-section .btn1 .btn2 {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
