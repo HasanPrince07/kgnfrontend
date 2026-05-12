@@ -36,8 +36,8 @@ function Login() {
             });
             const resData = await res.json();
             if (res.ok) {
-                console.log(resData.debugToken)
-                navigate("/dashboard", { state: { message: resData.message } });
+                alert(resData.debugToken)
+                //navigate("/dashboard", { state: { message: resData.message } });
             } else {
                 toast(resData.message, { type: "error" });
             }
