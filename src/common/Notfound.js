@@ -17,8 +17,12 @@ function Notfound() {
                        
                     </div>
                     <div className="row justify-content-center mt-3">
-                            <button className="text-uppercase col-sm-3 col-6 form-control fw-bold btn1" onClick={() => navigate("/")}>back to home</button>
+                        <div className="col-sm-3 col-6">
+                            <button className="text-uppercase form-control fw-bold btn1" onClick={() => navigate("/")}>back to home</button>
+                        </div>
+                        <div className="col-sm-3 col-6">
                             <button className="text-uppercase col-sm-3 col-6 form-control fw-bold btn2" onClick={() => navigate(-1)}>go back</button>
+                        </div>
                     </div>
                 </div>
             </main>
