@@ -359,12 +359,6 @@ code {
   border-right: 2px solid transparent;
 }
 
-@media screen and (max-width: 576px) {
-  #sidebar-section a {
-    font-size: 50px;
-  }
-}
-
 
 
 #admin-section .admin-div {
