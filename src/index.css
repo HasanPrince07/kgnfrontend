@@ -639,6 +639,7 @@ code {
 
   #notfound-section h2 {
   font-size: 20px;
+  letter-spacing: 2px;
   }
   
   #notfound-section p {
@@ -646,6 +647,6 @@ code {
   }
 
   #notfound-section button {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
