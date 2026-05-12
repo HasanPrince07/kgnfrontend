@@ -337,6 +337,12 @@ code {
   color: white;
 }
 
+@media screen and (max-width: 576px) {
+  #headerModal-section a {
+    font-size: 15px;
+  }
+}
+
 
 
 #sidebar-section {
