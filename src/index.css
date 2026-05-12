@@ -456,6 +456,10 @@ code {
     font-size: 14px;
   }
 
+  #admin-section .admin-div table td {
+    min-width: 100px;
+  }
+
   #admin-section .admin-div button {
     font-size: 13px;
   }
