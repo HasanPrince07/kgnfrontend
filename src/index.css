@@ -645,7 +645,7 @@ code {
     font-size: 15px;
   }
 
-  #notfound-section .btn1 .btn2 {
+  #notfound-section button {
     font-size: 12px;
   }
 }
