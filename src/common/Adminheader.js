@@ -70,7 +70,7 @@ function Adminheader() {
             </section>
 
             {modal && (
-                <section id="headerModal-section" className="position-fixed top-0 bottom-0 start-0 end-0" onClick={closeModal}>
+                <section id="headerModal-section" className="position-fixed z-1 top-0 bottom-0 start-0 end-0" onClick={closeModal}>
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-6 headerModal-div px-0 py-2 shadow-lg" onClick={(e) => e.stopPropagation()}>
