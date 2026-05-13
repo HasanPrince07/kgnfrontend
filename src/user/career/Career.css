@@ -34,5 +34,9 @@
 
     #career-form-section table th,td{
     font-size: 15px;
-}
+    }
+    
+    #career-form-section .career-form-btn {
+    font-size: 12px;
+    }
 }
