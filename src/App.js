@@ -87,7 +87,7 @@ const ProtectedRoute = () => {
 function App() {
   return (
     <Router>
-      <ToastContainer position='top-center' />
+      <ToastContainer position='top-center' toastClassName="my-custom-toast" />
       <ScrollToTop />
       <Suspense fallback={<Loader />}>
         <Routes>
