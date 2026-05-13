@@ -239,7 +239,7 @@ function Home() {
                         </div>
                         <div className="row justify-content-evenly align-items-center mt-sm-5 mt-4">
                             {pageData.certificate.map((src, index) => (
-                                <div key={index} className="col-lg-2 col-sm-3 col-8 py-sm-0 py-3 d-flex justify-content-center">
+                                <div key={index} className="col-lg-2 col-sm-3 col-8 py-sm-0 py-4 d-flex justify-content-center">
                                     <img className="w-100 h-100" loading="lazy" src={src} alt={`certificate ${index + 1}`} />
                                 </div>
                             ))}
