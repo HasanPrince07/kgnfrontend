@@ -45,7 +45,6 @@ function Contact() {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        if (name === "cPhone" && value.length > 10) return;
         setCForm(prev => ({ ...prev, [name]: value }));
     };
 
@@ -86,6 +85,16 @@ function Contact() {
         }
     }
 
+    function handlePhone(value) {
+        const phoneNumber = value.replace(/\D/g, "");
+        if (phoneNumber.length <= 10) {
+            setCForm((prev) => ({
+                ...prev,
+                cPhone: phoneNumber
+            }));
+        }
+    }
+
     const isPhoneValid = cForm.cPhone.length === 10;
     const showLengthError = cForm.cPhone.length > 0 && !isPhoneValid;
     const showRequiredError = error && !cForm.cPhone;
@@ -120,7 +129,7 @@ function Contact() {
                                     <input id="email" name="cEmail" value={cForm.cEmail} onChange={handleChange} className={`form-control rounded-0 shadow-none py-2 ${error && !cForm.cEmail.trim() ? "error-input" : ""}`} type="email" />
                                     <p className="my-1">{error && cForm.cEmail.trim().length === 0 ? "Email is required" : ""}</p>
                                     <label htmlFor="phone" className="pb-1">Phone</label>
-                                    <input id="phone" name="cPhone" value={cForm.cPhone} onChange={handleChange} className={`form-control rounded-0 shadow-none py-2 ${(showRequiredError || showLengthError) ? "error-input" : ""}`} type="number" />
+                                    <input id="phone" name="cPhone" value={cForm.cPhone} onChange={(e) => handlePhone(e.target.value)} className={`form-control rounded-0 shadow-none py-2 ${(showRequiredError || showLengthError) ? "error-input" : ""}`} type="text" inputMode="numeric" />
                                     <p className="my-1">{showRequiredError ? "Phone number is required" : showLengthError ? "Phone number should be in 10 digit" : ""}</p>
                                     <label htmlFor="message" className="pb-1">Message</label>
                                     <textarea id="message" name="cMessage" value={cForm.cMessage} onChange={handleChange} className={`form-control rounded-0 shadow-none py-2 ${error && !cForm.cMessage.trim() ? "error-input" : ""}`} rows={3}></textarea>
