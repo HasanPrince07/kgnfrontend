@@ -14,6 +14,19 @@ code {
 
 
 
+.my-custom-toast {
+  padding: 15px 20px 15px 15px;
+}
+
+@media screen and (max-width: 576px) {
+  .my-custom-toast {
+    width: 90%;
+    margin-top: 10px;
+  }
+}
+
+
+
 #loader-section {
   height: 87vh;
 }
