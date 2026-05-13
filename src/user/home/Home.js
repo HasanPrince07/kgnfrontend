@@ -266,7 +266,7 @@ function Home() {
                     <div className="container">
                         <div className="row">
                             <div className="col-12">
-                                <h2 className="text-center fw-bold m-0">FAQs</h2>
+                                <h2 className="text-center fw-bold m-0">FAQ</h2>
                             </div>
                         </div>
                         <div className="row mt-sm-4 mt-4 px-lg-5 px-sm-2 px-3">
