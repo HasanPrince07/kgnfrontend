@@ -7,7 +7,7 @@
 }
 
 #career-form-section table th,td{
-    font-size: 16px;
+    font-size: 17px;
 }
 
 #career-form-section table th {
@@ -31,4 +31,8 @@
     #career-form-section h2 {
         font-size: 24px;
     }
+
+    #career-form-section table th,td{
+    font-size: 15px;
+}
 }
