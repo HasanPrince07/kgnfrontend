@@ -246,7 +246,10 @@ function Apply() {
                                             {apply.file === "none" ? <label className="mt-3">cv/resume not available</label> :
                                                 <>
                                                     <label className="mb-1 mt-3">CV/Resume</label>
-                                                    <img className="w-100" src={apply.file} alt="not-found" />
+                                                    {apply.file.includes("/image/") ?
+                                                        <img className="w-100" src={apply.file} alt="not-found" /> :
+                                                        <a className="d-flex" href={apply.file}>Download PDF</a>
+                                                    }
                                                 </>
                                             }
 
