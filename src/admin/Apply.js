@@ -248,7 +248,7 @@ function Apply() {
                                                     <label className="mb-1 mt-3">CV/Resume</label>
                                                     {apply.file.includes("/image/") ?
                                                         <img className="w-100" src={apply.file} alt="not-found" /> :
-                                                        <a className="d-flex fw-bold text-decoration-none mt-2 p-2" href={`${apply.file}.pdf`}>Download PDF</a>
+                                                        <a className="d-flex fw-bold text-decoration-none mt-2 p-2" href={`${apply.file}.pdf`} download={`{apply.name}.pdf`}>Download PDF</a>
                                                     }
                                                 </>
                                             }
