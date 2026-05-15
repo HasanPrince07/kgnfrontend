@@ -6,7 +6,7 @@ const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function Apply() {
     const [data, setData] = useState([]);
-    const [apply, setApply] = useState({ title: "", name: "", email: "", phone: "", message: "", file: "",id: null });
+    const [apply, setApply] = useState({ title: "", name: "", email: "", phone: "", message: "", file: "", id: null });
     const [modal, setModal] = useState({ action: false, delete: false, multi: false });
     const [id, setId] = useState("");
     const [selectedId, setSelectedId] = useState([]);
@@ -170,10 +170,10 @@ function Apply() {
 
     const handleDownload = async () => {
         console.log("call handleDownload");
-        console.log("id ->",apply._id);
+        console.log("id ->",apply.id);
         setLoading(prev => ({ ...prev, form: true }));
         try {
-            const res = await fetch(`${BASE_URL}/admin/downloadPDF/${apply._id}`, {
+            const res = await fetch(`${BASE_URL}/admin/downloadPDF/${apply.id}`, {
                 credentials: "include",
             });
             const resData = await res.json();
