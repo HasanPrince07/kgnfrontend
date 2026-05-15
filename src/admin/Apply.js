@@ -168,15 +168,6 @@ function Apply() {
         setModal(prev => ({ ...prev, multi: true }));
     };
 
-    const getDownloadUrl = (url) => {
-        if (!url) return "#";
-        const baseParts = url.endsWith('.pdf') ? url : `${url}.pdf`;
-        if (baseParts.includes("/upload/")) {
-            return baseParts.replace("/upload/", "/upload/fl_attachment/");
-        }
-        return baseParts;
-    };
-
     return (
         <>
             <main id="admin-section">
@@ -257,7 +248,7 @@ function Apply() {
                                                     <label className="mb-1 mt-3">CV/Resume</label>
                                                     {apply.file.includes("/image/") ?
                                                         <img className="w-100" src={apply.file} alt="not-found" /> :
-                                                        <a className="d-flex fw-bold text-decoration-none mt-2 p-2" href={getDownloadUrl(apply.file)} download="application_document.pdf">Download PDF</a>
+                                                        <a className="d-flex fw-bold text-decoration-none mt-2 p-2" href={apply.file} >Download PDF</a>
                                                     }
                                                 </>
                                             }
