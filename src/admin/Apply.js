@@ -170,6 +170,7 @@ function Apply() {
 
     const handleDownload = async () => {
         console.log("call handleDownload");
+        console.log("id ->",apply._id);
         setLoading(prev => ({ ...prev, form: true }));
         try {
             const res = await fetch(`${BASE_URL}/admin/downloadPDF/${apply._id}`, {
