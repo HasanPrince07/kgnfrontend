@@ -168,6 +168,27 @@ function Apply() {
         setModal(prev => ({ ...prev, multi: true }));
     };
 
+    const handleDownload = async () => {
+        setLoading(prev => ({ ...prev, form: true }));
+        try {
+            const res = await fetch(`${BASE_URL}/admin/downloadPDF/${apply._id}`, {
+                credentials: "include",
+            });
+            const resData = await res.json();
+            if (res.ok) {
+                setModal(prev => ({ ...prev, action: false }));
+                toast(resData.message, { type: "success" });
+            } else {
+                toast(resData.message, { type: "error" });
+            }
+        } catch (error) {
+            toast("Network error, please check your internet", { type: "error" });
+            console.log("Error during download file:", error);
+        } finally {
+            setLoading(prev => ({ ...prev, form: false }));
+        }
+    }
+
     return (
         <>
             <main id="admin-section">
@@ -248,7 +269,7 @@ function Apply() {
                                                     <label className="mb-1 mt-3">CV/Resume</label>
                                                     {apply.file.includes("/image/") ?
                                                         <img className="w-100" src={apply.file} alt="not-found" /> :
-                                                        <a className="d-flex fw-bold text-decoration-none mt-2 p-2" href={`${BASE_URL}/admin/downloadPDF/${apply._id}`} target="_blank" rel="noopener noreferrer" >Download PDF</a>
+                                                        <a className="d-flex fw-bold text-decoration-none mt-2 p-2" onClick={handleDownload} target="_blank" rel="noopener noreferrer" >Download PDF</a>
                                                     }
                                                 </>
                                             }
