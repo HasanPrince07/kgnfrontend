@@ -172,9 +172,11 @@ function Apply() {
         e.preventDefault();
         try {
             const response = await fetch(fileUrl);
+            console.log(response)
             if (!response.ok) throw new Error('error during download file');
             const blob = await response.blob();
             const blobUrl = window.URL.createObjectURL(blob);
+            console.log(response)
             const link = document.createElement('a');
             link.href = blobUrl;
             link.download = "document.pdf";
