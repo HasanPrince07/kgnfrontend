@@ -168,28 +168,6 @@ function Apply() {
         setModal(prev => ({ ...prev, multi: true }));
     };
 
-    const handleDownload = async (e, fileUrl) => {
-        e.preventDefault();
-        try {
-            const response = await fetch(fileUrl);
-            console.log(response)
-            if (!response.ok) throw new Error('error during download file');
-            const blob = await response.blob();
-            const blobUrl = window.URL.createObjectURL(blob);
-            console.log(response)
-            const link = document.createElement('a');
-            link.href = blobUrl;
-            link.download = "document.pdf";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            window.URL.revokeObjectURL(blobUrl);
-        } catch (error) {
-            console.error("Download Error:", error);
-            alert("File coudn't dowload Please try again");
-        }
-    };
-
     return (
         <>
             <main id="admin-section">
@@ -270,7 +248,7 @@ function Apply() {
                                                     <label className="mb-1 mt-3">CV/Resume</label>
                                                     {apply.file.includes("/image/") ?
                                                         <img className="w-100" src={apply.file} alt="not-found" /> :
-                                                        <a className="d-flex fw-bold text-decoration-none mt-2 p-2" href={apply.file} onClick={(e) => handleDownload(e, apply.file)}>Download PDF</a>
+                                                        <a className="d-flex fw-bold text-decoration-none mt-2 p-2" href={apply.file ? apply.file.replace("/upload/", "/upload/fl_attachment/") : "#"} target="_blank" rel="noopener noreferrer" download="document.pdf">Download PDF</a>
                                                     }
                                                 </>
                                             }
