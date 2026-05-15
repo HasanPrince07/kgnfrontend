@@ -63,7 +63,8 @@ function Apply() {
                     email: resData.data.email,
                     phone: resData.data.phone,
                     message: resData.data.message,
-                    file: resData.data.file
+                    file: resData.data.file,
+                    id: resData.data._id
                 }));
             }
         } catch (error) {
