@@ -6,7 +6,7 @@ const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function Apply() {
     const [data, setData] = useState([]);
-    const [apply, setApply] = useState({ title: "", name: "", email: "", phone: "", message: "", file: "" });
+    const [apply, setApply] = useState({ title: "", name: "", email: "", phone: "", message: "", file: "",id: null });
     const [modal, setModal] = useState({ action: false, delete: false, multi: false });
     const [id, setId] = useState("");
     const [selectedId, setSelectedId] = useState([]);
