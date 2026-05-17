@@ -1,5 +1,5 @@
 import Wallpaper from "../../common/Wallpaper";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./Careerdetail.css";
@@ -10,6 +10,7 @@ const WALLPAPER_INITIAL_STATE = { title: "", image: "" }
 
 function Careerdetail() {
     const { id } = useParams();
+    const inputRef = useRef(null);
 
     const [enquiry, setEnquiry] = useState(INITIAL_STATE);
     const [career, setCareer] = useState(null);
@@ -84,6 +85,12 @@ function Careerdetail() {
     function handleReset() {
         setEnquiry(INITIAL_STATE);
         setError(false);
+        if (phoneNumber.length <= 10) {
+            setEnquiry((prev) => ({
+                ...prev,
+                phone: phoneNumber
+            }));
+        }
     }
 
     function handlePhone(value) {
@@ -134,7 +141,7 @@ function Careerdetail() {
                                     <textarea id="cover-letter" value={enquiry.message} onChange={(e) => setEnquiry((prev) => ({ ...prev, message: e.target.value }))} className={`form-control rounded-0 shadow-none py-2 ${error && !enquiry.message.trim() ? "error-input" : ""}`} rows={3}></textarea>
                                     <p className="my-1">{error && !enquiry.message.trim() ? "Cover letter is required" : ""}</p>
                                     <label htmlFor="resume" className="pb-1">Upload CV/Resume</label>
-                                    <input id="resume" onChange={(e) => setEnquiry((prev) => ({ ...prev, file: e.target.files[0] }))} className="form-control rounded-0 shadow-none py-2" type="file" />
+                                    <input ref={inputRef} id="resume" onChange={(e) => setEnquiry((prev) => ({ ...prev, file: e.target.files[0] }))} className="form-control rounded-0 shadow-none py-2" type="file" />
                                     <div className="d-flex justify-content-between mt-4">
                                         <button onClick={handleReset} type="reset" className="btn text-uppercase form-control shadow-none fw-bold rounded-0 me-2 px-5">reset</button>
                                         <button disabled={loading} type="submit" className="btn text-uppercase form-control shadow-none fw-bold rounded-0 ms-2 px-5">{loading ? <><div className="spinner mx-auto"></div></> : "apply"}</button>
