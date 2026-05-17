@@ -6,7 +6,7 @@ const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function Apply() {
     const [data, setData] = useState([]);
-    const [apply, setApply] = useState({ title: "", name: "", email: "", phone: "", message: "", file: "", id: null });
+    const [apply, setApply] = useState({ title: "", name: "", email: "", phone: "", message: "", file: "" });
     const [modal, setModal] = useState({ action: false, delete: false, multi: false });
     const [id, setId] = useState("");
     const [selectedId, setSelectedId] = useState([]);
@@ -63,8 +63,7 @@ function Apply() {
                     email: resData.data.email,
                     phone: resData.data.phone,
                     message: resData.data.message,
-                    file: resData.data.file,
-                    id: resData.data._id
+                    file: resData.data.file
                 }));
             }
         } catch (error) {
@@ -169,29 +168,6 @@ function Apply() {
         setModal(prev => ({ ...prev, multi: true }));
     };
 
-    const handleDownload = async () => {
-        console.log("call handleDownload");
-        console.log("id ->",apply.id);
-        setLoading(prev => ({ ...prev, form: true }));
-        try {
-            const res = await fetch(`${BASE_URL}/admin/downloadPDF/${apply.id}`, {
-                credentials: "include",
-            });
-            const resData = await res.json();
-            if (res.ok) {
-                setModal(prev => ({ ...prev, action: false }));
-                toast(resData.message, { type: "success" });
-            } else {
-                toast(resData.message, { type: "error" });
-            }
-        } catch (error) {
-            toast("Network error, please check your internet", { type: "error" });
-            console.log("Error during download file:", error);
-        } finally {
-            setLoading(prev => ({ ...prev, form: false }));
-        }
-    }
-
     return (
         <>
             <main id="admin-section">
@@ -272,7 +248,7 @@ function Apply() {
                                                     <label className="mb-1 mt-3">CV/Resume</label>
                                                     {apply.file.includes("/image/") ?
                                                         <img className="w-100" src={apply.file} alt="not-found" /> :
-                                                        <a className="d-flex fw-bold text-decoration-none mt-2 p-2" onClick={handleDownload} target="_blank" rel="noopener noreferrer" >Download PDF</a>
+                                                        <a className="d-flex fw-bold text-decoration-none mt-2 p-2" href={apply.file} target="_blank" >Download PDF</a>
                                                     }
                                                 </>
                                             }
