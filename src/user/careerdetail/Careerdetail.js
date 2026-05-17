@@ -85,11 +85,8 @@ function Careerdetail() {
     function handleReset() {
         setEnquiry(INITIAL_STATE);
         setError(false);
-        if (phoneNumber.length <= 10) {
-            setEnquiry((prev) => ({
-                ...prev,
-                phone: phoneNumber
-            }));
+        if (inputRef.current) {
+            inputRef.current.value = ""
         }
     }
 
