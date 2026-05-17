@@ -168,6 +168,26 @@ function Apply() {
         setModal(prev => ({ ...prev, multi: true }));
     };
 
+    const handleDownload = async (e) => {
+        e.preventDefault();
+        const fileUrl = apply.file;
+        const customFileName = `${apply.name}.pdf`;
+        try {
+            const response = await fetch(fileUrl);
+            const blob = await response.blob();
+            const blobUrl = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = blobUrl;
+            link.download = customFileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(blobUrl);
+        } catch (error) {
+            console.error("Download failed:", error);
+        }
+    };
+
     return (
         <>
             <main id="admin-section">
@@ -248,7 +268,7 @@ function Apply() {
                                                     <label className="mb-1 mt-3">CV/Resume</label>
                                                     {apply.file.includes("/image/") ?
                                                         <img className="w-100" src={apply.file} alt="not-found" /> :
-                                                        <a className="d-flex fw-bold text-decoration-none mt-2 p-2" href={apply.file} >Download PDF</a>
+                                                        <button className="btn form-control shadow-none rounded-0 mt-2 fw-bold text-uppercase" onClick={handleDownload}>Download PDF</button>
                                                     }
                                                 </>
                                             }
