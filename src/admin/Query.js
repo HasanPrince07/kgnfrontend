@@ -171,7 +171,6 @@ function Query() {
 
     const closeModal = () => {
         setQuery({
-            from: "",
             subject: "",
             body: "",
             image: ""
