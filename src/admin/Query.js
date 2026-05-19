@@ -7,7 +7,7 @@ const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 function Query() {
 
     const [data, setData] = useState([]);
-    const [query, setQuery] = useState({ name: "", email: "", phone: "", message: "", from: "kgnelectrodes@gmail.com", subject: "", body: "", image: "" });
+    const [query, setQuery] = useState({ name: "", email: "", phone: "", message: "", from: "KGN Electrodes <info@kgnelectrodes.com>", subject: "", body: "", image: "" });
     const [counts, setCounts] = useState({ total: 0, replied: 0, unreplied: 0 });
     const [select, setSelect] = useState("All Queries");
     const [modal, setModal] = useState({ action: false, delete: false, multi: false });
