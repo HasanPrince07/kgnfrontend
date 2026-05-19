@@ -75,6 +75,7 @@ function Query() {
             const resData = await res.json();
             if (res.ok) {
                 handleFetch();
+                setQuery(INITIAL_STATE);
                 setError(false);
                 setModal(prev => ({ ...prev, action: false }));
                 toast(resData.message, { type: "success" });
