@@ -307,7 +307,7 @@ function Query() {
                                             <label className="mb-1">To</label>
                                             <input value={query.email} disabled type="email" className="form-control shadow-none rounded-0 mb-3" />
                                             <label className="mb-1">From</label>
-                                            <input value={query.from} type="email" onChange={(e) => setQuery((prev) => ({ ...prev, from: e.target.value }))} className={`form-control rounded-0 shadow-none ${error && !query.from.trim() ? "error-input" : ""}`} />
+                                            <input value={query.from} disabled type="email" onChange={(e) => setQuery((prev) => ({ ...prev, from: e.target.value }))} className={`form-control rounded-0 shadow-none ${error && !query.from.trim() ? "error-input" : ""}`} />
                                             <p className="my-1">{error && query.from.trim().length === 0 ? "From is required" : ""}</p>
                                             <label className="mb-1">Subject</label>
                                             <input value={query.subject} type="text" onChange={(e) => setQuery((prev) => ({ ...prev, subject: e.target.value }))} className={`form-control rounded-0 shadow-none ${error && !query.subject.trim() ? "error-input" : ""}`} />
