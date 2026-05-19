@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import Sidebar from "../common/Sidebar";
 import { useCallback, useEffect, useState } from "react";
 
-const INITIAL_STATE = { name: "", email: "", phone: "", message: "", from: "kgnelectrodes@gmail.com", subject: "", body: "", image: "" }
+const INITIAL_STATE = { name: "", email: "", phone: "", message: "", from: "KGN Electrodes <info@kgnelectrodes.com>", subject: "", body: "", image: "" }
 const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function Query() {
