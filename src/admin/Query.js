@@ -316,7 +316,7 @@ function Query() {
                                             <label className="mb-1">Image</label>
                                             <input onChange={handleSelectedImage} type="file" className="form-control shadow-none rounded-0" />
                                             {query.image ?
-                                                <div className="row mt-2 mb-3 align-items-center gy-2">
+                                                <div className="row mt-2 align-items-center gy-2">
                                                     <div className="col-sm-4 col-6 position-relative">
                                                         <img
                                                             className="w-100"
@@ -332,7 +332,7 @@ function Query() {
                                                     </div>
                                                 </div>
                                                 : ""}
-                                            <button type="submit" disabled={loading.form} className="btn text-uppercase fw-bold shadow-none form-control rounded-0 mt-2">{loading.form ? <div className="spinner mx-auto"></div> : "reply"}</button>
+                                            <button type="submit" disabled={loading.form} className="btn text-uppercase fw-bold shadow-none form-control rounded-0 mt-4">{loading.form ? <div className="spinner mx-auto"></div> : "reply"}</button>
                                         </form>
                                     }
                                 </div>
