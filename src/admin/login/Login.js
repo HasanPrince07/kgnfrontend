@@ -70,6 +70,7 @@ function Login() {
                                 <div className="d-flex mt-sm-2 mt-0">
                                     <button type="submit" disabled={loading} className="btn text-uppercase fw-bold shadow-none form-control rounded-0">{loading ? <><div className="spinner mx-auto"></div></> : "login"}</button>
                                 </div>
+                                <Link to="/forgot" className="d-flex justify-content-center mt-2">Forgot your password?</Link>
                             </form>
                         </div>
                     </div>
