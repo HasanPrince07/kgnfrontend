@@ -31,6 +31,7 @@ const Apply = lazy(() => import("./admin/Apply"));
 const Query = lazy(() => import("./admin/Query"));
 const ContactAdmin = lazy(() => import("./admin/Contact"));
 const Login = lazy(() => import("./admin/login/Login"));
+const Forgot = lazy(() => import("./admin/forgot/Forgot"));
 
 const Notfound = lazy(() => import("./common/Notfound"));
 
@@ -100,6 +101,7 @@ function App() {
             <Route path='/contact' element={<Contact />} />
           </Route>
           <Route path='/login' element={<Login />} />
+          <Route path='/forgot' element={<Forgot />} />
           <Route element={<ProtectedRoute />}>
             <Route element={<AdminLayout />}>
               <Route path='/dashboard' element={<Dashboard />} />
