@@ -1,0 +1,49 @@
+#forgot-section {
+  height: 100vh;
+}
+
+#forgot-section .description-text{
+    font-size: 16px;
+    color: black;
+}
+
+#forgot-section label {
+  font-size: 18px;
+}
+
+#forgot-section .error-input {
+  border: 1px solid red;
+}
+
+#forgot-section p {
+  color: red;
+  height: 22px;
+  font-size: 16px;
+}
+
+#forgot-section button {
+  background-color: #002954;
+  color: white;
+  border: 2px solid #002954;
+}
+
+#forgot-section button:hover {
+  background-color: white;
+  color: #002954;
+  border: 2px solid #002954;
+}
+
+#forgot-section .spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #002954;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  animation: spin 1s linear infinite;
+}
+
+@media screen and (max-width: 576px) {
+  #forgot-section .description-text {
+    font-size: 14px;
+  }
+}
