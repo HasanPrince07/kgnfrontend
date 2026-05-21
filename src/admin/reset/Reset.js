@@ -25,7 +25,7 @@ function Reset() {
         }
         setLoading(true);
         try {
-            const res = await fetch(`/admin/reset`, {
+            const res = await fetch(`/admin/reset/${id}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
