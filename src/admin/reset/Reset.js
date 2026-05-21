@@ -3,7 +3,6 @@ import { toast } from "react-toastify";
 import "./reset.css";
 import { useParams } from "react-router-dom";
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const INITIAL_STATE = { newpass: "", cpass: "" };
 
 function Reset() {
@@ -26,7 +25,7 @@ function Reset() {
         }
         setLoading(true);
         try {
-            const res = await fetch(`${BASE_URL}/admin/reset/${id}`, {
+            const res = await fetch(`/admin/reset/${id}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
