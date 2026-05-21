@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./forgot.css";
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
-
 function Login() {
 
     const [email, setEmail] = useState("");
@@ -13,17 +11,18 @@ function Login() {
 
     const handleForm = async (e) => {
         e.preventDefault();
+        const formdata = { email }
         if (!email.trim()) {
             setError(true);
             return
         }
         setLoading(true);
         try {
-            const res = await fetch(`${BASE_URL}/admin/forgot`, {
+            const res = await fetch(`/admin/forgot`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
-                body: JSON.stringify(email)
+                body: JSON.stringify(formdata)
             });
             const resData = await res.json();
             if (res.ok) {
