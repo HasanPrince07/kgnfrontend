@@ -14,7 +14,7 @@ function About() {
         try {
             const results = await Promise.allSettled([
                 fetch(`${BASE_URL}/user/fetchabout`).then(res => res.json()),
-                fetch(`${BASE_URL}/user/fetchwallpaper/1`).then(res => res.json())
+                fetch(`${BASE_URL}/user/fetchwallpaper/5`).then(res => res.json())
             ]);
             if (results[0].status === 'fulfilled' && results[0].value.data) {
                 setAbout(results[0].value.data);
