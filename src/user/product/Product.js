@@ -29,7 +29,7 @@ function Product() {
             try {
                 const results = await Promise.allSettled([
                     fetch(`${BASE_URL}/user/fetchproduct`).then(res => res.json()),
-                    fetch(`${BASE_URL}/user/fetchwallpaper/2`).then(res => res.json())
+                    fetch(`${BASE_URL}/user/fetchwallpaper/4`).then(res => res.json())
                 ]);
                 if (results[0].status === 'fulfilled' && results[0].value.data) {
                     setProducts(results[0].value.data);
