@@ -20,7 +20,7 @@ function Contact() {
         try {
             const results = await Promise.allSettled([
                 fetch(`${BASE_URL}/user/fetchcontact`).then(res => res.json()),
-                fetch(`${BASE_URL}/user/fetchwallpaper/5`).then(res => res.json())
+                fetch(`${BASE_URL}/user/fetchwallpaper/1`).then(res => res.json())
             ]);
             if (results[0].status === 'fulfilled' && results[0].value.data) {
                 setContact(results[0].value.data);
